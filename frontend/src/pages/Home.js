@@ -54,116 +54,100 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 text-white overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1540575467083-2bdc3c5f8ebe?w=1920&q=80" 
-            alt="Event background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 via-primary-700/85 to-secondary-600/90"></div>
-        </div>
-
-        {/* Floating Elements Animation */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <FloatingElement className="absolute top-20 left-10 opacity-20" duration={4}>
-            <Calendar className="h-32 w-32" />
-          </FloatingElement>
-          <FloatingElement className="absolute top-40 right-20 opacity-20" duration={5} delay={1}>
-            <Star className="h-24 w-24" />
-          </FloatingElement>
-          <FloatingElement className="absolute bottom-20 left-1/4 opacity-20" duration={6} delay={2}>
-            <Sparkles className="h-28 w-28" />
-          </FloatingElement>
-          <FloatingElement className="absolute bottom-40 right-1/3 opacity-20" duration={4.5} delay={0.5}>
-            <Zap className="h-20 w-20" />
-          </FloatingElement>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
-          <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
-            {/* Badge */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <ShimmerEffect className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium">
-                <Sparkles className="h-4 w-4 inline mr-2" />
-                Discover Amazing Events & Host Your Own
-              </ShimmerEffect>
-            </motion.div>
-
-            {/* Main Heading */}
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <GradientText gradient="from-white via-primary-200 to-white">
-                Unforgettable
-              </GradientText>
-              <br />
-              <span className="text-white">Events Await</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p variants={itemVariants} className="text-xl md:text-2xl mb-4 text-primary-100 max-w-3xl mx-auto">
-              Book tickets for concerts, conferences, sports, and more. 
-              Or host your own events and manage attendees with ease.
-            </motion.p>
-
-            {/* Features Pills */}
-            <motion.p variants={itemVariants} className="text-lg mb-8 text-primary-200 max-w-2xl mx-auto">
-              <span className="bg-white/20 px-3 py-1 rounded-full">✨ Create your event</span> <span className="mx-2">•</span> 
-              <span className="bg-white/20 px-3 py-1 rounded-full">🎫 Sell tickets</span> <span className="mx-2">•</span> 
-              <span className="bg-white/20 px-3 py-1 rounded-full">📊 Track analytics</span>
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <AnimatedButton variant="secondary" size="lg" className="shadow-2xl">
-                <Link to="/events" className="flex items-center">
-                  <Search className="h-5 w-5 mr-2" />
-                  Browse Events
-                </Link>
-              </AnimatedButton>
-              <AnimatedButton variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-600">
-                <Link to="/register?host=true" className="flex items-center">
-                  <Sparkles className="h-5 w-5 mr-2" />
-                  Become a Host
-                </Link>
-              </AnimatedButton>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div variants={itemVariants} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-              {[
-                { number: '10K+', label: 'Events' },
-                { number: '500K+', label: 'Tickets Sold' },
-                { number: '50K+', label: 'Happy Users' },
-                { number: '1K+', label: 'Event Hosts' },
-              ].map((stat, index) => (
-                <motion.div key={index} className="text-center" whileHover={{ scale: 1.1 }}>
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                  <div className="text-primary-200 text-sm">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2" 
-          animate={{ y: [0, 10, 0] }} 
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <motion.div 
-              className="w-1.5 h-3 bg-white rounded-full mt-2"
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
+        {/* Hero Section */}
+        <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-between bg-gradient-to-r from-blue-50 via-blue-100 to-white/90 overflow-hidden">
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-10 left-10 w-8 h-8 bg-blue-500/10 rounded-full animate-pulse delay-200"></div>
+            <div className="absolute top-20 right-16 w-6 h-6 bg-blue-400/15 rounded-full animate-pulse delay-400"></div>
           </div>
-        </motion.div>
-      </section>
+          
+          {/* Hero Content */}
+          <div className="flex-1 max-w-[50%] px-6 lg:px-12 pt-4 relative z-10">
+            <div className="space-y-6">
+              {/* Badge */}
+              <motion.div variants={itemVariants} className="mb-3">
+                <ShimmerEffect className="inline-block px-4 py-2 bg-blue-600/20 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600">
+                  <Sparkles className="h-3 w-3 inline mr-1.5" />
+                  Discover Amazing Events & Host Your Own
+                </ShimmerEffect>
+              </motion.div>
 
-      {/* Featured Events Section - First */}
+              {/* Main Heading */}
+              <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl font-extrabold mb-4 leading-none tracking-tight text-gray-900">
+                Unforgettable
+                <br />
+                <span className="block text-blue-600">Events Await</span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p variants={itemVariants} className="text-lg md:text-2xl mb-6 text-gray-600 max-w-xl">
+                Book tickets for concerts, conferences, sports, and more. 
+                Or host your own events and manage attendees with ease.
+              </motion.p>
+
+              {/* Stats Section */}
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-6 mb-8">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">10K+</div>
+                  <div className="text-sm text-gray-500 font-medium">Events Hosted</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">500K+</div>
+                  <div className="text-sm text-gray-500 font-medium">Tickets Sold</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">50K+</div>
+                  <div className="text-sm text-gray-500 font-medium">Happy Users</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">1K+</div>
+                  <div className="text-sm text-gray-500 font-medium">Event Hosts</div>
+                </div>
+              </motion.div>
+
+              {/* Features Pills */}
+              <motion.p variants={itemVariants} className="text-sm mb-8 text-gray-500 flex flex-wrap gap-2">
+                <span className="bg-blue-600/20 px-4 py-2 rounded-full text-blue-600 font-medium">✨ Create your event</span> <span className="mx-3">•</span> 
+                <span className="bg-blue-600/20 px-4 py-2 rounded-full text-blue-600 font-medium">🎫 Sell tickets</span> <span className="mx-3">•</span> 
+                <span className="bg-blue-600/20 px-4 py-2 rounded-full text-blue-600 font-medium">📊 Track analytics</span>
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-start">
+                <AnimatedButton variant="secondary" size="lg" className="shadow-2xl hover:shadow-2xl/50 transition-shadow duration-300">
+                  <Link to="/events" className="flex items-center px-6 py-2.5">
+                    <Search className="h-4 w-4 mr-2" />
+                    Browse Events
+                  </Link>
+                </AnimatedButton>
+                <AnimatedButton variant="outline" size="lg" className="border border-blue-600 border-2 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                  <Link to="/register?host=true" className="flex items-center px-6 py-2.5">
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Become a Host
+                  </Link>
+                </AnimatedButton>
+              </motion.div>
+            </div>
+          </div>
+          {/* Hero Image */}
+          <div className="flex-1 max-w-[50%] relative flex items-center z-10">
+            <div className="w-full h-[480px] flex-shrink-0 relative">
+              <img 
+                src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg" 
+                alt="Audience at event"
+                className="w-full h-full object-cover rounded-2xl shadow-xl transform hover:scale-102 transition-transform duration-500"
+              />
+              {/* Decorative overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent pointer-events-none"></div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-radial-gradient(from-circle at-center, transparent 70%, blue-500/5 100%) pointer-events-none"></div>
+            </div>
+          </div>
+
+       </section>
+
+       {/* Featured Events Section - First */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedContainer className="flex flex-col md:flex-row justify-between items-center mb-12">
